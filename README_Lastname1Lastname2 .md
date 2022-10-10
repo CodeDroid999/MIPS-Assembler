@@ -47,7 +47,7 @@ $ ./assembler test1.asm test.out
 All known issues with the program
  1.Parts implemented with issues
     a.The input file should be in ASCII text.
-    b.Each line in the input assembly file should contain either a mnemonic, a section header (such as .data) or a label (jump or branch target.
+    b.Each line in the input assembly file should contain either a mnemonic, a section header or a label.
     c.The maximum length of a line is 128 bytes.
     d.Section headers such as .data and .text should be in a line by themselves with no other assembly mnemonic.
     e.The input assembly file should only contain one data section and one text section.
