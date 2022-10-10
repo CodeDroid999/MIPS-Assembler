@@ -117,10 +117,6 @@ int main (int argc, char *argv[]) {
 	}
 }
 
-
-//Main class for the assembler. Contains the main method
-
-
 //forward declaration of functions
 void decodeInstruction(char* line);
 void createSimpleLtype(char* line, int* opCode, bool sw);

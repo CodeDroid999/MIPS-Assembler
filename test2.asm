@@ -1,23 +1,32 @@
-# "Hello World" in MIPS assembly
-.text
+# Store 'Hello world!' at the top of the stack
+ADDI $sp, $sp, -13
+ADDI $t0, $zero, 72 # H
+SB $t0, 0($sp)
+ADDI $t0, $zero, 101 # e
+SB $t0, 1($sp)
+ADDI $t0, $zero, 108 # l
+SB $t0, 2($sp)
+ADDI $t0, $zero, 108 # l
+SB $t0, 3($sp)
+ADDI $t0, $zero, 111 # o
+SB $t0, 4($sp)
+ADDI $t0, $zero, 32 # (space)
+SB $t0, 5($sp)
+ADDI $t0, $zero, 119 # w
+SB $t0, 6($sp)
+ADDI $t0, $zero, 111 # o
+SB $t0, 7($sp)
+ADDI $t0, $zero, 114 # r
+SB $t0, 8($sp)
+ADDI $t0, $zero, 108 # l
+SB $t0, 9($sp)
+ADDI $t0, $zero, 100 # d
+SB $t0, 10($sp)
+ADDI $t0, $zero, 33 # !
+SB $t0, 11($sp)
+ADDI $t0, $zero, 0 # (null)
+SB $t0, 12($sp)
 
-	# Declare main as a global function
-	.globl	main
-	
-main:
-	# Run the print_string syscall which has code 4
-	li	$v0,4		# Code for syscall: print_string
-	la	$a0, msg	# Pointer to string (load the address of msg)
-	syscall
-	li	$v0,10		# Code for syscall: exit
-	syscall
-
-	# All memory structures are placed after the
-	# .data assembler directive
-	.data
-
-	# The .asciiz assembler directive creates
-	# an ASCII string in memory terminated by
-	# the null character. Note that strings are
-	# surrounded by double-quotes
-msg:	.asciiz	"Hello World!\n"
+ADDI $v0, $zero, 4 # 4 is for print string
+ADDI $a0, $sp, 0
+syscall 			# print to the log
